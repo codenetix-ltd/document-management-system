@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "backend": "git@github.com:codenetix-ltd/document-management-system-backend.git",
+    "frontend": "git@github.com:codenetix-ltd/document-management-system-frontend.git"
+  }
+}
