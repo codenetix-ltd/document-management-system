@@ -6,9 +6,8 @@
 
 ### Requirments
 
-1. docker
-2. docker-composer
-2. npm install -g meta
+1. docker & docker-compose
+2. npm & npm install -g meta
 
 ### Steps
 
