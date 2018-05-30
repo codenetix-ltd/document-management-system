@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend_app:
+  frontend_app:
+    build:
+      context: ../frontend
+  documentation:
+    networks:
+      - frontend
+    volumes: ['../api-specification:/schema']
+  mock:
+    networks:
+      - frontend
+    volumes: ['../api-specification:/schema']
+  proxy:
+    container_name: dms_proxy
+    build:
+      context: ../proxy
+    image: codenetix/laravel-dms-proxy
+    networks:
+      - backend
+      - frontend
+    ports:
+      - 80:80

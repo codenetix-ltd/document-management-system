@@ -1,6 +1,8 @@
 {
   "projects": {
     "backend": "git@github.com:codenetix-ltd/document-management-system-backend.git",
-    "frontend": "git@github.com:codenetix-ltd/document-management-system-frontend.git"
+    "frontend": "git@github.com:codenetix-ltd/document-management-system-frontend.git",
+    "proxy": "git@github.com:codenetix-ltd/document-management-system-proxy.git",
+    "api-specification": "git@github.com:codenetix-ltd/document-management-system-api-specification.git"
   }
 }
