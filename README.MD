@@ -1,11 +1,20 @@
-[![pipeline status](https://git.codenetix.com/dms/backend/badges/master/pipeline.svg)](https://git.codenetix.com/dms/backend/commits/master)
-[![coverage report](https://git.codenetix.com/dms/backend/badges/master/coverage.svg)](https://git.codenetix.com/dms/backend/commits/master)
 [![Codenetix](https://www.codenetix.com/img/codenetix-logo-light.svg)](https://www.codenetix.com/)
 
 # Laravel 5.6 Document Management System
 
 ## Installation
 
+### Requirments
+
+1. docker
+2. docker-composer
+2. npm install -g meta
+
+### Steps
+
 ```
-TODO
+$ meta git update
+$ meta git checkout dev
+$ sudo make build
+$ sudo make up
 ```
