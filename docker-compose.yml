@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  backend_app:
-  frontend_app:
+  backend-app:
+  frontend-app:
     build:
       context: ../frontend
   documentation:
