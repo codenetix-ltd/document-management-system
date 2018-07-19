@@ -1,25 +1,26 @@
 version: '3'
 
 services:
-  backend-app:
+  documentation:
+    build:
+      context: ../api-specification
+  mock:
+    build:
+      context: ../api-specification
   frontend-app:
     build:
       context: ../frontend
-  documentation:
-    networks:
-      - frontend
-    volumes: ['../api-specification:/schema']
-  mock:
-    networks:
-      - frontend
-    volumes: ['../api-specification:/schema']
+  backend-app:
+    build:
+      context: ../backend
   proxy:
     container_name: dms_proxy
     build:
       context: ../proxy
-    image: codenetix/laravel-dms-proxy
-    networks:
-      - backend
-      - frontend
+    depends_on:
+      - mock
+      - documentation
+      - backend-app
+      - frontend-app
     ports:
       - 80:80

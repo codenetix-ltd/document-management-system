@@ -14,6 +14,7 @@
 ```
 $ meta git update
 $ meta git checkout dev
-$ sudo make build
-$ sudo make up
+$ make build
+$ make init
+$ make up
 ```
