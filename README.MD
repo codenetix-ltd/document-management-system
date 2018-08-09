@@ -11,9 +11,25 @@
 
 ### Steps
 
+```bash
+meta git update
+meta git checkout dev
+make build
+make up
+make init //only at the first start
 ```
-$ meta git update
-$ meta git checkout dev
-$ sudo make build
-$ sudo make up
-```
+
+### Running demo
+
+1. Download docker-compose prod file
+    ```bash
+    curl https://raw.githubusercontent.com/codenetix-ltd/document-management-system/master/docker-compose-prod.yml > docker-compose-prod.yml
+    ```
+2.  Start containers
+    ```bash
+    docker-compose -f docker-compose-prod.yml up -d proxy
+    ```
+3. Initiate database
+    ```bash
+    docker-compose -f docker-compose-prod.yml exec backend-app ./init.sh
+    ```

@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  documentation:
+    image: codenetix/laravel-dms-documentation:master
+
+  mock:
+    image: codenetix/laravel-dms-mock:master
+
+  frontend-app:
+    image: codenetix/laravel-dms-frontend:master
+
+  backend-app:
+    image: codenetix/laravel-dms-backend:master
+    environment:
+      APP_ENV: local
+      APP_DEBUG: 'true'
+      APP_KEY: '"base64:N5A11hYX5GxzTqEPRtoRHjtdtqg65hGpw2Qis1V4b8M="'
+      DB_DATABASE: dms
+      DB_HOST: mysql
+      DB_PASSWORD: dms
+      DB_USERNAME: root
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7.22
+    environment:
+      MYSQL_DATABASE: dms
+      MYSQL_ROOT_PASSWORD: dms
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306/tcp
+
+  proxy:
+    image: codenetix/laravel-dms-proxy:master
+    depends_on:
+      - mock
+      - documentation
+      - backend-app
+      - frontend-app
+    ports:
+      - 80:80
+
+volumes:
+  mysql-data:
+  schema:
