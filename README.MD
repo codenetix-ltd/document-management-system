@@ -15,8 +15,8 @@
 meta git update
 meta git checkout dev
 make build
-make init
 make up
+make init //only at the first start
 ```
 
 ### Running demo
@@ -25,11 +25,11 @@ make up
     ```bash
     curl https://raw.githubusercontent.com/codenetix-ltd/document-management-system/master/docker-compose-prod.yml > docker-compose-prod.yml
     ```
-2. Initiate database
-    ```bash
-    docker-compose -f docker-compose-prod.yml up init
-    ```
-3.  Start containers
+2.  Start containers
     ```bash
     docker-compose -f docker-compose-prod.yml up -d proxy
+    ```
+3. Initiate database
+    ```bash
+    docker-compose -f docker-compose-prod.yml exec backend-app ./init.sh
     ```
